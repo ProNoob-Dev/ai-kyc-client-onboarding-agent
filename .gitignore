@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# Environment & secrets — never commit these
+.env
+*.pem
+*.key
+
+# Runtime data (generated locally; seed data is committed separately)
+data/cases.json
+data/cases.json.tmp
+data/audit_log.jsonl
+
+# OS / editors
+.DS_Store
+.vscode/
+.idea/

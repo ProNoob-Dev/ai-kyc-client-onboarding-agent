@@ -1,0 +1,38 @@
+services:
+  api:
+    build: .
+    container_name: kyc-onboarding-api
+    ports:
+      - "8000:8000"
+    environment:
+      # Mock LLM by default — the API runs fully offline.
+      # For real Azure OpenAI, set LLM_PROVIDER=azure and fill in the
+      # AZURE_OPENAI_* variables in a .env file (see .env.example).
+      - LLM_PROVIDER=${LLM_PROVIDER:-mock}
+      - AZURE_OPENAI_ENDPOINT=${AZURE_OPENAI_ENDPOINT:-}
+      - AZURE_OPENAI_API_KEY=${AZURE_OPENAI_API_KEY:-}
+      - AZURE_OPENAI_DEPLOYMENT=${AZURE_OPENAI_DEPLOYMENT:-gpt-4o}
+      # Postgres is the production case store. The API uses it when
+      # DATABASE_URL is set, and falls back to the local JSON store
+      # (data/cases.json) when it is not reachable.
+      - DATABASE_URL=postgresql://kyc:kyc@postgres:5432/kyc_onboarding
+      - ADDRESS_PROOF_MAX_AGE_DAYS=90
+    depends_on:
+      - postgres
+    volumes:
+      - ./data:/app/data
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: kyc-onboarding-postgres
+    environment:
+      - POSTGRES_USER=kyc
+      - POSTGRES_PASSWORD=kyc
+      - POSTGRES_DB=kyc_onboarding
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

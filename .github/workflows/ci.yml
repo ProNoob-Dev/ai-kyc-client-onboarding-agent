@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Lint
+        run: ruff check app scripts tests
+
+      - name: Run tests (incl. golden-set eval)
+        env:
+          LLM_PROVIDER: mock
+        run: pytest -v
+
+      - name: Smoke test — boot the API
+        env:
+          LLM_PROVIDER: mock
+        run: |
+          python -m uvicorn app.main:app --port 8000 &
+          UVICORN_PID=$!
+          trap "kill $UVICORN_PID 2>/dev/null || true" EXIT
+          sleep 8
+          curl -fsS http://localhost:8000/health
+          # A brand-new client with no seeded history: clean documents,
+          # consistent fields, recent address proof — must pass through.
+          # Bill date is computed relative to today so CI stays green.
+          BILL_DATE=$(date -d "-10 days" +%F)
+          CASE_ID=$(curl -fsS -X POST http://localhost:8000/onboarding \
+            -H 'Content-Type: application/json' \
+            -d '{"client_name":"Smoke Test Enterprises Pvt Ltd","client_type":"company","declared_registration_number":"U74900MH2019PTC999999"}' \
+            | python3 -c "import json,sys; print(json.load(sys.stdin)['id'])")
+          curl -fsS -X POST http://localhost:8000/onboarding/$CASE_ID/documents \
+            -H 'Content-Type: application/json' \
+            -d '{"name":"certificate_of_incorporation.pdf","content":"Certificate of Incorporation\nCompany Name: Smoke Test Enterprises Pvt Ltd\nCIN: U74900MH2019PTC999999\nDate of Incorporation: 2019-04-12\nRegistered Office: 12, Palm Court, Andheri West, Mumbai 400053"}' \
+            > /dev/null
+          curl -fsS -X POST http://localhost:8000/onboarding/$CASE_ID/documents \
+            -H 'Content-Type: application/json' \
+            -d '{"name":"aadhaar_card.pdf","content":"Name: Smoke Officer\nDate of Birth: 1990-05-14\nAddress: 12, Palm Court, Andheri West, Mumbai 400053\nValid Until: 2030-01-01"}' \
+            > /dev/null
+          curl -fsS -X POST http://localhost:8000/onboarding/$CASE_ID/documents \
+            -H 'Content-Type: application/json' \
+            -d "{\"name\":\"electricity_bill.pdf\",\"content\":\"Electricity Bill\\nName: Smoke Test Enterprises Pvt Ltd\\nAddress: 12, Palm Court, Andheri West, Mumbai 400053\\nBill Date: $BILL_DATE\"}" \
+            | grep -o '"status":"ready"'

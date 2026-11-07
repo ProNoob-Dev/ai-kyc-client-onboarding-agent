@@ -1,0 +1,469 @@
+[
+  {
+    "client_name": "Sharma Trading Pvt Ltd",
+    "client_type": "company",
+    "country": "India",
+    "documents": [
+      {
+        "name": "certificate_of_incorporation.pdf",
+        "content": "Certificate of Incorporation\nCompany Name: Sharma Trading Pvt Ltd\nCIN: U74900MH2019PTC123456\nDate of Incorporation: {today-5y}\nRegistered Office: 12, Palm Court, Andheri West, Mumbai 400053\nRegistrar of Companies, Mumbai",
+        "content_type": "text/plain",
+        "doc_type_hint": "incorporation"
+      },
+      {
+        "name": "aadhaar_card.pdf",
+        "content": "Government of India — Aadhaar Card\nName: Aarav Sharma\nAadhaar No.: 2345 6789 0123\nDate of Birth: 1990-05-14\nAddress: 12, Palm Court, Andheri West, Mumbai 400053\nValid Until: {today+2y}",
+        "content_type": "text/plain",
+        "doc_type_hint": "id_proof"
+      },
+      {
+        "name": "electricity_bill.pdf",
+        "content": "Electricity Bill — Maharashtra State Electricity Board\nName: Sharma Trading Pvt Ltd\nAddress: 12, Palm Court, Andheri West, Mumbai 400053\nBill Date: {today-10d}\nAmount due: Rs. 2,340",
+        "content_type": "text/plain",
+        "doc_type_hint": "address_proof"
+      }
+    ],
+    "declared_registration_number": "U74900MH2019PTC123456",
+    "declared_address": "12, Palm Court, Andheri West, Mumbai 400053",
+    "case_id": "G01-company-clean",
+    "expected_decision": "pass_through"
+  },
+  {
+    "client_name": "Priya Patel",
+    "client_type": "individual",
+    "country": "India",
+    "documents": [
+      {
+        "name": "aadhaar_card.pdf",
+        "content": "Government of India — Aadhaar Card\nName: Priya Patel\nAadhaar No.: 2345 6789 0123\nDate of Birth: 1988-11-02\nAddress: 45, Lakeview Apartments, HSR Layout, Bengaluru 560102\nValid Until: {today+2y}",
+        "content_type": "text/plain",
+        "doc_type_hint": "id_proof"
+      },
+      {
+        "name": "electricity_bill.pdf",
+        "content": "Electricity Bill — Maharashtra State Electricity Board\nName: Priya Patel\nAddress: 45, Lakeview Apartments, HSR Layout, Bengaluru 560102\nBill Date: {today-10d}\nAmount due: Rs. 2,340",
+        "content_type": "text/plain",
+        "doc_type_hint": "address_proof"
+      }
+    ],
+    "case_id": "G02-individual-clean",
+    "expected_decision": "pass_through"
+  },
+  {
+    "client_name": "Meera Textiles Pvt Ltd",
+    "client_type": "company",
+    "country": "India",
+    "documents": [
+      {
+        "name": "certificate_of_incorporation.pdf",
+        "content": "Certificate of Incorporation\nCompany Name: Meera Textiles Pvt Ltd\nCIN: U17299GJ2020PTC098765\nDate of Incorporation: {today-4y}\nRegistered Office: 45, Lakeview Apartments, HSR Layout, Bengaluru 560102\nRegistrar of Companies, Mumbai",
+        "content_type": "text/plain",
+        "doc_type_hint": "incorporation"
+      },
+      {
+        "name": "aadhaar_card.pdf",
+        "content": "Government of India — Aadhaar Card\nName: Meera Singh\nAadhaar No.: 2345 6789 0123\nDate of Birth: 1985-03-21\nAddress: 45, Lakeview Apartments, HSR Layout, Bengaluru 560102\nValid Until: {today+2y}",
+        "content_type": "text/plain",
+        "doc_type_hint": "id_proof"
+      },
+      {
+        "name": "electricity_bill.pdf",
+        "content": "Electricity Bill — Maharashtra State Electricity Board\nName: Meera Textiles Pvt Ltd\nAddress: 45, Lakeview Apartments, HSR Layout, Bengaluru 560102\nBill Date: {today-5d}\nAmount due: Rs. 2,340",
+        "content_type": "text/plain",
+        "doc_type_hint": "address_proof"
+      }
+    ],
+    "declared_registration_number": "U17299GJ2020PTC098765",
+    "case_id": "G03-company-clean-2",
+    "expected_decision": "pass_through"
+  },
+  {
+    "client_name": "Rohan Iyer",
+    "client_type": "individual",
+    "country": "India",
+    "documents": [
+      {
+        "name": "aadhaar_card.pdf",
+        "content": "Government of India — Aadhaar Card\nName: Rohan Iyer\nAadhaar No.: 2345 6789 0123\nDate of Birth: 1992-07-30\nAddress: 12, Palm Court, Andheri West, Mumbai 400053\nValid Until: {today+2y}",
+        "content_type": "text/plain",
+        "doc_type_hint": "id_proof"
+      },
+      {
+        "name": "electricity_bill.pdf",
+        "content": "Electricity Bill — Maharashtra State Electricity Board\nName: Rohan Iyer\nAddress: 12, Palm Court, Andheri West, Mumbai 400053\nBill Date: {today-10d}\nAmount due: Rs. 2,340",
+        "content_type": "text/plain",
+        "doc_type_hint": "address_proof"
+      }
+    ],
+    "case_id": "G04-individual-clean-2",
+    "expected_decision": "pass_through"
+  },
+  {
+    "client_name": "Karan Logistics LLP",
+    "client_type": "company",
+    "country": "India",
+    "documents": [
+      {
+        "name": "certificate_of_incorporation.pdf",
+        "content": "Certificate of Incorporation\nCompany Name: Karan Logistics LLP\nCIN: AAB-1234\nDate of Incorporation: {today-3y}\nRegistered Office: 12, Palm Court, Andheri West, Mumbai 400053\nRegistrar of Companies, Mumbai",
+        "content_type": "text/plain",
+        "doc_type_hint": "incorporation"
+      },
+      {
+        "name": "aadhaar_card.pdf",
+        "content": "Government of India — Aadhaar Card\nName: Karan Nair\nAadhaar No.: 2345 6789 0123\nDate of Birth: 1987-01-19\nAddress: 12, Palm Court, Andheri West, Mumbai 400053\nValid Until: {today+2y}",
+        "content_type": "text/plain",
+        "doc_type_hint": "id_proof"
+      },
+      {
+        "name": "electricity_bill.pdf",
+        "content": "Electricity Bill — Maharashtra State Electricity Board\nName: Karan Logistics LLP\nAddress: 12, Palm Court, Andheri West, Mumbai 400053\nBill Date: {today-10d}\nAmount due: Rs. 2,340",
+        "content_type": "text/plain",
+        "doc_type_hint": "address_proof"
+      }
+    ],
+    "case_id": "G05-company-clean-3",
+    "expected_decision": "pass_through"
+  },
+  {
+    "client_name": "Sneha Reddy",
+    "client_type": "individual",
+    "country": "India",
+    "documents": [
+      {
+        "name": "aadhaar_card.pdf",
+        "content": "Government of India — Aadhaar Card\nName: Sneha Reddy\nAadhaar No.: 2345 6789 0123\nDate of Birth: 1995-09-08\nAddress: 45, Lakeview Apartments, HSR Layout, Bengaluru 560102\nValid Until: {today+2y}",
+        "content_type": "text/plain",
+        "doc_type_hint": "id_proof"
+      },
+      {
+        "name": "electricity_bill.pdf",
+        "content": "Electricity Bill — Maharashtra State Electricity Board\nName: Sneha Reddy\nAddress: 45, Lakeview Apartments, HSR Layout, Bengaluru 560102\nBill Date: {today-10d}\nAmount due: Rs. 2,340",
+        "content_type": "text/plain",
+        "doc_type_hint": "address_proof"
+      }
+    ],
+    "case_id": "G06-individual-clean-3",
+    "expected_decision": "pass_through"
+  },
+  {
+    "client_name": "Vikram Khan",
+    "client_type": "individual",
+    "country": "India",
+    "documents": [
+      {
+        "name": "aadhaar_card.pdf",
+        "content": "Government of India — Aadhaar Card\nName: Vikram Khan\nAadhaar No.: 2345 6789 0123\nDate of Birth: 1991-12-05\nAddress: 12, Palm Court, Andheri West, Mumbai 400053\nValid Until: {today+2y}",
+        "content_type": "text/plain",
+        "doc_type_hint": "id_proof"
+      },
+      {
+        "name": "electricity_bill.pdf",
+        "content": "Electricity Bill — Maharashtra State Electricity Board\nName: Vikram Khaan\nAddress: 12, Palm Court, Andheri West, Mumbai 400053\nBill Date: {today-10d}\nAmount due: Rs. 2,340",
+        "content_type": "text/plain",
+        "doc_type_hint": "address_proof"
+      }
+    ],
+    "case_id": "G07-name-mismatch",
+    "expected_decision": "needs_review"
+  },
+  {
+    "client_name": "Ananya Foods Pvt Ltd",
+    "client_type": "company",
+    "country": "India",
+    "documents": [
+      {
+        "name": "certificate_of_incorporation.pdf",
+        "content": "Certificate of Incorporation\nCompany Name: Ananya Foods Pvt Ltd\nCIN: U15400DL2018PTC334455\nDate of Incorporation: {today-6y}\nRegistered Office: 12, Palm Court, Andheri West, Mumbai 400053\nRegistrar of Companies, Mumbai",
+        "content_type": "text/plain",
+        "doc_type_hint": "incorporation"
+      },
+      {
+        "name": "aadhaar_card.pdf",
+        "content": "Government of India — Aadhaar Card\nName: Ananya Gupta\nAadhaar No.: 2345 6789 0123\nDate of Birth: 1989-04-11\nAddress: 12, Palm Court, Andheri West, Mumbai 400053\nValid Until: {today+2y}",
+        "content_type": "text/plain",
+        "doc_type_hint": "id_proof"
+      },
+      {
+        "name": "electricity_bill.pdf",
+        "content": "Electricity Bill — Maharashtra State Electricity Board\nName: Ananya Food Products Pvt Ltd\nAddress: 12, Palm Court, Andheri West, Mumbai 400053\nBill Date: {today-10d}\nAmount due: Rs. 2,340",
+        "content_type": "text/plain",
+        "doc_type_hint": "address_proof"
+      }
+    ],
+    "case_id": "G08-company-name-mismatch",
+    "expected_decision": "needs_review"
+  },
+  {
+    "client_name": "Arjun Technologies Pvt Ltd",
+    "client_type": "company",
+    "country": "India",
+    "documents": [
+      {
+        "name": "certificate_of_incorporation.pdf",
+        "content": "Certificate of Incorporation\nCompany Name: Arjun Technologies Pvt Ltd\nCIN: U72900KA2021PTC111222\nDate of Incorporation: {today-2y}\nRegistered Office: 45, Lakeview Apartments, HSR Layout, Bengaluru 560102\nRegistrar of Companies, Mumbai",
+        "content_type": "text/plain",
+        "doc_type_hint": "incorporation"
+      },
+      {
+        "name": "aadhaar_card.pdf",
+        "content": "Government of India — Aadhaar Card\nName: Arjun Das\nAadhaar No.: 2345 6789 0123\nDate of Birth: 1993-06-17\nAddress: 45, Lakeview Apartments, HSR Layout, Bengaluru 560102\nValid Until: {today+2y}",
+        "content_type": "text/plain",
+        "doc_type_hint": "id_proof"
+      },
+      {
+        "name": "electricity_bill.pdf",
+        "content": "Electricity Bill — Maharashtra State Electricity Board\nName: Arjun Technologies Pvt Ltd\nAddress: 45, Lakeview Apartments, HSR Layout, Bengaluru 560102\nBill Date: {today-10d}\nAmount due: Rs. 2,340",
+        "content_type": "text/plain",
+        "doc_type_hint": "address_proof"
+      }
+    ],
+    "declared_registration_number": "U72900KA2021PTC999999",
+    "case_id": "G09-registration-mismatch",
+    "expected_decision": "needs_review"
+  },
+  {
+    "client_name": "Divya Joshi",
+    "client_type": "individual",
+    "country": "India",
+    "documents": [
+      {
+        "name": "aadhaar_card.pdf",
+        "content": "Government of India — Aadhaar Card\nName: Divya Joshi\nAadhaar No.: 2345 6789 0123\nDate of Birth: 1994-02-28\nAddress: 12, Palm Court, Andheri West, Mumbai 400053\nValid Until: {today+2y}",
+        "content_type": "text/plain",
+        "doc_type_hint": "id_proof"
+      },
+      {
+        "name": "electricity_bill.pdf",
+        "content": "Electricity Bill — Maharashtra State Electricity Board\nName: Divya Joshi\nAddress: 45, Lakeview Apartments, HSR Layout, Bengaluru 560102\nBill Date: {today-10d}\nAmount due: Rs. 2,340",
+        "content_type": "text/plain",
+        "doc_type_hint": "address_proof"
+      }
+    ],
+    "case_id": "G10-address-mismatch",
+    "expected_decision": "needs_review"
+  },
+  {
+    "client_name": "Nikhil Mehta",
+    "client_type": "individual",
+    "country": "India",
+    "documents": [
+      {
+        "name": "aadhaar_card.pdf",
+        "content": "Government of India — Aadhaar Card\nName: Nikhil Mehta\nAadhaar No.: 2345 6789 0123\nDate of Birth: 1986-08-23\nAddress: 12, Palm Court, Andheri West, Mumbai 400053\nValid Until: {today-30d}",
+        "content_type": "text/plain",
+        "doc_type_hint": "id_proof"
+      },
+      {
+        "name": "electricity_bill.pdf",
+        "content": "Electricity Bill — Maharashtra State Electricity Board\nName: Nikhil Mehta\nAddress: 12, Palm Court, Andheri West, Mumbai 400053\nBill Date: {today-10d}\nAmount due: Rs. 2,340",
+        "content_type": "text/plain",
+        "doc_type_hint": "address_proof"
+      }
+    ],
+    "case_id": "G11-id-expired",
+    "expected_decision": "propose_reject"
+  },
+  {
+    "client_name": "Kavya Exports LLP",
+    "client_type": "company",
+    "country": "India",
+    "documents": [
+      {
+        "name": "certificate_of_incorporation.pdf",
+        "content": "Certificate of Incorporation\nCompany Name: Kavya Exports LLP\nCIN: AAB-5678\nDate of Incorporation: {today-3y}\nRegistered Office: 45, Lakeview Apartments, HSR Layout, Bengaluru 560102\nRegistrar of Companies, Mumbai",
+        "content_type": "text/plain",
+        "doc_type_hint": "incorporation"
+      },
+      {
+        "name": "aadhaar_card.pdf",
+        "content": "Government of India — Aadhaar Card\nName: Kavya Kulkarni\nAadhaar No.: 2345 6789 0123\nDate of Birth: 1990-10-09\nAddress: 45, Lakeview Apartments, HSR Layout, Bengaluru 560102\nValid Until: {today-30d}",
+        "content_type": "text/plain",
+        "doc_type_hint": "id_proof"
+      },
+      {
+        "name": "electricity_bill.pdf",
+        "content": "Electricity Bill — Maharashtra State Electricity Board\nName: Kavya Exports LLP\nAddress: 45, Lakeview Apartments, HSR Layout, Bengaluru 560102\nBill Date: {today-10d}\nAmount due: Rs. 2,340",
+        "content_type": "text/plain",
+        "doc_type_hint": "address_proof"
+      }
+    ],
+    "case_id": "G12-id-expired-company",
+    "expected_decision": "propose_reject"
+  },
+  {
+    "client_name": "Aditya Chopra",
+    "client_type": "individual",
+    "country": "India",
+    "documents": [
+      {
+        "name": "aadhaar_card.pdf",
+        "content": "Government of India — Aadhaar Card\nName: Aditya Chopra\nAadhaar No.: 2345 6789 0123\nDate of Birth: 1992-04-03\nAddress: 12, Palm Court, Andheri West, Mumbai 400053\nValid Until: {today+2y}",
+        "content_type": "text/plain",
+        "doc_type_hint": "id_proof"
+      }
+    ],
+    "case_id": "G13-missing-documents",
+    "expected_decision": "needs_review"
+  },
+  {
+    "client_name": "Riya Menon Exports Pvt Ltd",
+    "client_type": "company",
+    "country": "India",
+    "documents": [
+      {
+        "name": "certificate_of_incorporation.pdf",
+        "content": "Certificate of Incorporation\nCompany Name: Riya Menon Exports Pvt Ltd\nCIN: U51909KL2022PTC778899\nDate of Incorporation: {today-1y}\nRegistered Office: 45, Lakeview Apartments, HSR Layout, Bengaluru 560102\nRegistrar of Companies, Mumbai",
+        "content_type": "text/plain",
+        "doc_type_hint": "incorporation"
+      },
+      {
+        "name": "aadhaar_card.pdf",
+        "content": "Government of India — Aadhaar Card\nName: Riya Menon\nAadhaar No.: 2345 6789 0123\nDate of Birth: 1988-12-12\nAddress: 45, Lakeview Apartments, HSR Layout, Bengaluru 560102\nValid Until: {today+2y}",
+        "content_type": "text/plain",
+        "doc_type_hint": "id_proof"
+      }
+    ],
+    "case_id": "G14-company-missing-address",
+    "expected_decision": "needs_review"
+  },
+  {
+    "client_name": "Sanjay Rao",
+    "client_type": "individual",
+    "country": "India",
+    "documents": [
+      {
+        "name": "aadhaar_card.pdf",
+        "content": "Government of India — Aadhaar Card\nName: Sanjay Rao\nAadhaar No.: 2345 6789 0123\nDate of Birth: 1984-05-27\nAddress: 12, Palm Court, Andheri West, Mumbai 400053\nValid Until: {today+2y}",
+        "content_type": "text/plain",
+        "doc_type_hint": "id_proof"
+      },
+      {
+        "name": "electricity_bill.pdf",
+        "content": "Electricity Bill — Maharashtra State Electricity Board\nName: Sanjay Rao\nAddress: 12, Palm Court, Andheri West, Mumbai 400053\nBill Date: {today-200d}\nAmount due: Rs. 2,340",
+        "content_type": "text/plain",
+        "doc_type_hint": "address_proof"
+      }
+    ],
+    "case_id": "G15-address-proof-old",
+    "expected_decision": "needs_review"
+  },
+  {
+    "client_name": "Pooja Sharma Technologies Pvt Ltd",
+    "client_type": "company",
+    "country": "India",
+    "documents": [
+      {
+        "name": "certificate_of_incorporation.pdf",
+        "content": "Certificate of Incorporation\nCompany Name: Pooja Sharma Technologies Pvt Ltd\nCIN: U62099MH2024PTC445566\nDate of Incorporation: {today+1y}\nRegistered Office: 12, Palm Court, Andheri West, Mumbai 400053\nRegistrar of Companies, Mumbai",
+        "content_type": "text/plain",
+        "doc_type_hint": "incorporation"
+      },
+      {
+        "name": "aadhaar_card.pdf",
+        "content": "Government of India — Aadhaar Card\nName: Pooja Sharma\nAadhaar No.: 2345 6789 0123\nDate of Birth: 1991-01-15\nAddress: 12, Palm Court, Andheri West, Mumbai 400053\nValid Until: {today+2y}",
+        "content_type": "text/plain",
+        "doc_type_hint": "id_proof"
+      },
+      {
+        "name": "electricity_bill.pdf",
+        "content": "Electricity Bill — Maharashtra State Electricity Board\nName: Pooja Sharma Technologies Pvt Ltd\nAddress: 12, Palm Court, Andheri West, Mumbai 400053\nBill Date: {today-10d}\nAmount due: Rs. 2,340",
+        "content_type": "text/plain",
+        "doc_type_hint": "address_proof"
+      }
+    ],
+    "case_id": "G16-incorporation-future",
+    "expected_decision": "needs_review"
+  },
+  {
+    "client_name": "Manish Patel",
+    "client_type": "individual",
+    "country": "India",
+    "documents": [
+      {
+        "name": "aadhaar_card.pdf",
+        "content": "Government of India — Aadhaar Card\nName: Manish Patel\nAadhaar No.: 2345 6789 0123\nDate of Birth: 1989-09-19\nAddress: 12, Palm Court, Andheri West, Mumbai 400053\nValid Until: {today+2y}",
+        "content_type": "text/plain",
+        "doc_type_hint": "id_proof"
+      },
+      {
+        "name": "random_note.txt",
+        "content": "Meeting notes: call the client on Tuesday to discuss the onboarding timeline and next steps.",
+        "content_type": "text/plain"
+      }
+    ],
+    "case_id": "G17-unknown-document",
+    "expected_decision": "needs_review"
+  },
+  {
+    "client_name": "Ishita Iyer",
+    "client_type": "individual",
+    "country": "India",
+    "documents": [
+      {
+        "name": "aadhaar_card.pdf",
+        "content": "Government of India — Aadhaar Card\nName: Ishita Iyer\nAadhaar No.: 2345 6789 0123\nDate of Birth: 1993-03-08\nAddress: 12, Palm Court, Andheri West, Mumbai 400053\nValid Until: {today+2y}",
+        "content_type": "text/plain",
+        "doc_type_hint": "id_proof"
+      },
+      {
+        "name": "electricity_bill.pdf",
+        "content": "Electricity Bill — Maharashtra State Electricity Board\nName: Ishita Iyyer\nAddress: 45, Lakeview Apartments, HSR Layout, Bengaluru 560102\nBill Date: {today-200d}\nAmount due: Rs. 2,340",
+        "content_type": "text/plain",
+        "doc_type_hint": "address_proof"
+      }
+    ],
+    "case_id": "G18-multiple-mismatches",
+    "expected_decision": "needs_review"
+  },
+  {
+    "client_name": "Varun Reddy",
+    "client_type": "individual",
+    "country": "India",
+    "documents": [
+      {
+        "name": "aadhaar_card.pdf",
+        "content": "Government of India — Aadhaar Card\nName: Varun Reddy\nAadhaar No.: 2345 6789 0123\nDate of Birth: 1990-07-22\nAddress: 12, Palm Court, Andheri West, Mumbai 400053\nValid Until: {today+2y}",
+        "content_type": "text/plain",
+        "doc_type_hint": "id_proof"
+      },
+      {
+        "name": "electricity_bill.pdf",
+        "content": "Electricity Bill — Maharashtra State Electricity Board\nName: Varun Reddy\nAddress: 12, Palm Court, Andheri West, Mumbai 400053\nBill Date: {today-10d}\nAmount due: Rs. 2,340",
+        "content_type": "text/plain",
+        "doc_type_hint": "address_proof"
+      }
+    ],
+    "declared_address": "45, Lakeview Apartments, HSR Layout, Bengaluru 560102",
+    "case_id": "G19-declared-address-mismatch",
+    "expected_decision": "needs_review"
+  },
+  {
+    "client_name": "Nisha Khan Foods Pvt Ltd",
+    "client_type": "company",
+    "country": "India",
+    "documents": [
+      {
+        "name": "certificate_of_incorporation.pdf",
+        "content": "Certificate of Incorporation\nCompany Name: Nisha Khan Foods Pvt Ltd\nCIN: U15400MH2020PTC667788\nDate of Incorporation: {today-3y}\nRegistered Office: 12, Palm Court, Andheri West, Mumbai 400053\nRegistrar of Companies, Mumbai",
+        "content_type": "text/plain",
+        "doc_type_hint": "incorporation"
+      },
+      {
+        "name": "aadhaar_card.pdf",
+        "content": "Government of India — Aadhaar Card\nName: Nisha Khan\nAadhaar No.: 2345 6789 0123\nDate of Birth: 1987-11-30\nAddress: 12, Palm Court, Andheri West, Mumbai 400053\nValid Until: {today+2y}",
+        "content_type": "text/plain",
+        "doc_type_hint": "id_proof"
+      },
+      {
+        "name": "electricity_bill.pdf",
+        "content": "Electricity Bill — Maharashtra State Electricity Board\nName: Nisha Khan Foods Pvt Ltd\nAddress: 12, Palm Court, Andheri West, Mumbai 400053\nBill Date: {today-10d}\nAmount due: Rs. 2,340",
+        "content_type": "text/plain",
+        "doc_type_hint": "address_proof"
+      }
+    ],
+    "declared_registration_number": "U15400MH2020PTC000000",
+    "case_id": "G20-declared-registration-mismatch",
+    "expected_decision": "needs_review"
+  }
+]

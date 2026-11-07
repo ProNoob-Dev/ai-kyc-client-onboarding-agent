@@ -1,0 +1,14 @@
+# KYC & Client Onboarding Document Agent — runtime dependencies (Python 3.12)
+fastapi==0.162.0
+uvicorn[standard]==0.54.0
+pydantic==2.14.3
+langgraph==1.2.20
+openai==3.46.0
+httpx==0.28.1
+python-multipart==0.0.33
+python-dotenv==1.2.4
+psycopg[binary]==3.2.4
+
+# Dev / test (also installed by CI)
+pytest==9.2.0
+ruff>=0.4

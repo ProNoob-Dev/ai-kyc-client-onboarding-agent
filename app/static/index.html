@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KYC &amp; Client Onboarding Document Agent</title>
+  <link rel="stylesheet" href="/static/dashboard.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2l8 3v6c0 5-3.5 9.4-8 11-4.5-1.6-8-6-8-11V5l8-3z"/>
+            <path d="M8.5 12l2.5 2.5 4.5-5"/>
+          </svg>
+        </div>
+        <div>
+          <h1>KYC &amp; Client Onboarding <span class="accent">Document Agent</span></h1>
+          <p class="subtitle">AI document verification for client onboarding — classify, extract and validate identity, incorporation &amp; address documents. Clean cases pass through; mismatches go to a human reviewer.</p>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <span id="llm-badge" class="badge badge-info" title="LLM provider in use">LLM: …</span>
+        <button id="refresh-btn" class="btn btn-secondary" type="button">↻ Refresh</button>
+        <a class="btn btn-secondary" href="/docs">API docs</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Metrics -->
+    <section class="metrics" aria-label="Overview">
+      <div class="metric-card">
+        <div class="metric-label">Cases onboarded</div>
+        <div class="metric-value" id="m-total">—</div>
+        <div class="metric-sub" id="m-total-sub">—</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Pass-through rate</div>
+        <div class="metric-value" id="m-pass">—</div>
+        <div class="metric-sub">clean cases, no human touch</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Avg processing time</div>
+        <div class="metric-value" id="m-avg-ms">—</div>
+        <div class="metric-sub">per document upload</div>
+      </div>
+      <div class="metric-card metric-card--warn">
+        <div class="metric-label">Pending review</div>
+        <div class="metric-value" id="m-pending">—</div>
+        <div class="metric-sub">mismatches waiting on a human</div>
+      </div>
+    </section>
+
+    <div class="grid">
+      <!-- New case -->
+      <section class="card" aria-label="New onboarding case">
+        <div class="eyebrow">Step 1 — Client</div>
+        <h2>New onboarding case</h2>
+        <form id="case-form">
+          <label>Client name
+            <input name="client_name" type="text" required placeholder="Sharma Trading Pvt Ltd">
+          </label>
+          <div class="form-row">
+            <label>Client type
+              <select name="client_type">
+                <option value="company">Company</option>
+                <option value="individual">Individual</option>
+              </select>
+            </label>
+            <label>Country
+              <input name="country" type="text" value="India">
+            </label>
+          </div>
+          <label>Declared registration number (optional)
+            <input name="declared_registration_number" type="text" placeholder="U74900MH2019PTC123456">
+          </label>
+          <label>Declared address (optional)
+            <input name="declared_address" type="text" placeholder="12, Palm Court, Andheri West, Mumbai 400053">
+          </label>
+          <button class="btn btn-primary" type="submit">Create case →</button>
+          <p id="case-form-status" class="form-status" role="status"></p>
+        </form>
+      </section>
+
+      <!-- Upload document -->
+      <section class="card" aria-label="Upload a document">
+        <div class="eyebrow">Step 2 — Documents</div>
+        <h2>Upload a document</h2>
+        <form id="document-form">
+          <label>Case
+            <select name="case_id" id="document-case-select" required>
+              <option value="">Create a case first…</option>
+            </select>
+          </label>
+          <label>Document name
+            <input name="name" type="text" required placeholder="aadhaar_card.pdf">
+          </label>
+          <label>Document type (hint — the agent classifies it anyway)
+            <select name="doc_type_hint">
+              <option value="">Auto-detect</option>
+              <option value="id_proof">ID proof</option>
+              <option value="incorporation">Incorporation papers</option>
+              <option value="address_proof">Address proof</option>
+            </select>
+          </label>
+          <label>Document text — paste extracted text
+            <textarea name="content" rows="3" required
+              placeholder="Name: Priya Patel&#10;Aadhaar No.: 2345 6789 0123&#10;Valid Until: 2030-01-01"></textarea>
+          </label>
+          <label>Or upload text files (.txt, .md, .csv)
+            <input id="document-files" type="file" multiple accept=".txt,.md,.csv,.json">
+          </label>
+          <button class="btn btn-primary" type="submit">Verify document →</button>
+          <p id="document-form-status" class="form-status" role="status"></p>
+        </form>
+      </section>
+    </div>
+
+    <!-- Review queue -->
+    <section class="card" aria-label="Review queue">
+      <div class="section-head">
+        <h2>Review queue <span class="count-pill" id="queue-count">0</span></h2>
+      </div>
+      <p class="muted">Cases with mismatches, oldest first. A rejection can only be
+        confirmed here — the agents can only <em>propose</em> one.</p>
+      <ul id="queue-list" class="queue-list"></ul>
+    </section>
+
+    <!-- Cases table -->
+    <section class="card" aria-label="All cases">
+      <div class="section-head">
+        <h2>All cases</h2>
+        <div class="filters">
+          <select id="filter-status" aria-label="Filter by status">
+            <option value="">All statuses</option>
+            <option value="ready">Ready</option>
+            <option value="pending_review">Pending review</option>
+            <option value="approved">Approved</option>
+            <option value="rejected">Rejected</option>
+            <option value="info_requested">Info requested</option>
+          </select>
+          <select id="filter-type" aria-label="Filter by type">
+            <option value="">All types</option>
+            <option value="individual">Individual</option>
+            <option value="company">Company</option>
+          </select>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Case</th>
+              <th>Client</th>
+              <th>Type</th>
+              <th>Docs</th>
+              <th>Mismatches</th>
+              <th>Decision</th>
+              <th>Status</th>
+              <th>Created</th>
+            </tr>
+          </thead>
+          <tbody id="cases-body">
+            <tr><td colspan="8" class="muted">Loading…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Case detail -->
+    <section class="card" id="detail-card" aria-label="Case detail" hidden>
+      <div class="section-head">
+        <h2 id="detail-title">Case detail</h2>
+        <button class="btn btn-secondary" id="detail-close" type="button">✕ Close</button>
+      </div>
+      <div id="detail-body"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Built with FastAPI, LangGraph, PostgreSQL and Azure OpenAI ·
+      <a href="/docs">API docs</a> ·
+      <a href="https://github.com/ProNoob-Dev/ai-kyc-client-onboarding-agent">GitHub</a>
+    </p>
+  </footer>
+
+  <script src="/static/dashboard.js"></script>
+</body>
+</html>
